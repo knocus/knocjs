@@ -30,7 +30,7 @@ export class Fb {
         return this.url(Fb.APP_TOKEN_PATH, params);
     }
 
-    public validate = async (token: string, fbConfig: FacebookConfig) => {
+    public validate = async (token: string, fbConfig: FacebookConfig) : Promise<FacebookData> => {
         return await this.inspectToken(token, fbConfig)
     }
 

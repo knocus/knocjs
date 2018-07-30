@@ -1,6 +1,6 @@
 {
   "name": "hapi-knoc",
-  "version": "0.0.5-facebook-alpha-v1",
+  "version": "0.0.5-facebook-alpha-v2",
   "description": "A Hapi.js plugin for Authentication like Bell, but with freedom of validation logic handling left as pluggable parameters ",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
