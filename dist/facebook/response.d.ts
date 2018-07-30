@@ -1,4 +1,4 @@
-export interface FacebookData {
+export interface FacebookResponse {
     app_id: string;
     type: string;
     application: string;
@@ -7,3 +7,7 @@ export interface FacebookData {
     scopes: string[];
     user_id: string;
 }
+export interface FacebookNotValid {
+    is_valid: boolean;
+}
+export declare type FacebookData = FacebookResponse | FacebookNotValid;
