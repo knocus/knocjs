@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es5",                          
+    "module": "commonjs",                     
+    "noImplicitThis": true,
+    "declaration": true,
+    "outDir": "./dist",
+      "lib": [
+        "es2015"
+      ]
+    },
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "include": [
+      "src/**/*"
+    ],
+    "exclude": [
+      "./node_modules/**/*",
+      "**/*.spec.ts"
+    ]
+}

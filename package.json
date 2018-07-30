@@ -1,0 +1,18 @@
+{
+  "name": "hapi-knoc",
+  "version": "0.0.5-facebook-alpha-v1",
+  "description": "A Hapi.js plugin for Authentication like Bell, but with freedom of validation logic handling left as pluggable parameters ",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "https://github.com/knocus/hapi-knoc.git",
+  "author": "Sahal Sajjad",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/node": "^10.5.4",
+    "axios": "^0.18.0",
+    "querystring": "^0.2.0",
+    "typescript": "^2.9.2"
+  }
+}
