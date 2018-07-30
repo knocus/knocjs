@@ -1,4 +1,3 @@
-import { FacebookData } from './response';
 export interface FacebookConfig {
     clientId: string;
     clientSecret: string;
@@ -12,9 +11,9 @@ export declare class Fb {
     private url;
     private inspectUrl;
     private appTokenUrl;
-    validate: (token: string, fbConfig: FacebookConfig) => Promise<FacebookData>;
+    validate: (token: string, fbConfig: FacebookConfig) => Promise<any>;
     private inspectToken;
     private getAppAccessToken;
 }
 declare const fb: Fb;
-export { fb, FacebookData };
+export { fb };
