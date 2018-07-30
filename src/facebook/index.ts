@@ -1,5 +1,4 @@
 import * as Axios from 'axios';
-import { FacebookData } from './response';
 const qs = require('querystring');
 
 const axios = Axios.default;
@@ -30,7 +29,7 @@ export class Fb {
         return this.url(Fb.APP_TOKEN_PATH, params);
     }
 
-    public validate = async (token: string, fbConfig: FacebookConfig) : Promise<FacebookData> => {
+    public validate = async (token: string, fbConfig: FacebookConfig)  => {
         return await this.inspectToken(token, fbConfig)
     }
 
@@ -48,7 +47,7 @@ export class Fb {
 
         const url = this.inspectUrl(params);
         const response = await axios.get(url);
-        const fbresponse:FacebookData = response.data;
+        const fbresponse= response.data;
 
         return fbresponse;
     }
@@ -70,4 +69,4 @@ export class Fb {
 }
 
 const fb = new Fb();
-export { fb, FacebookData };
+export { fb };

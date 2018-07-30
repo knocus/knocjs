@@ -1,7 +1,6 @@
-import {fb, FacebookConfig, FacebookData} from './facebook';
+import {fb, FacebookConfig} from './facebook';
 
 export {
     fb,
-    FacebookConfig,
-    FacebookData
+    FacebookConfig
 }
