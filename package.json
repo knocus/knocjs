@@ -12,6 +12,7 @@
     "@types/axios": "^0.14.0",
     "@types/node": "^10.5.4",
     "axios": "^0.18.0",
+    "google-auth-library": "^1.6.1",
     "querystring": "^0.2.0",
     "typescript": "^2.9.2"
   }

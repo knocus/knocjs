@@ -4,10 +4,12 @@ const qs = require('querystring');
 const axios = Axios.default;
 
 export interface FacebookConfig {
+    token:string,
     clientId: string,
     clientSecret: string,
     grantType: string,
-    redirectUri: string
+    redirectUri: string,
+    scope?:string
 }
 
 export class Fb {
@@ -29,19 +31,19 @@ export class Fb {
         return this.url(Fb.APP_TOKEN_PATH, params);
     }
 
-    public validate = async (token: string, fbConfig: FacebookConfig)  => {
-        return await this.inspectToken(token, fbConfig)
+    public authenticate = async (config: FacebookConfig)  => {
+        return await this.inspectToken(config)
     }
 
-    private inspectToken = async (token: string, fbConfig: FacebookConfig) => {
+    private inspectToken = async (config: FacebookConfig) => {
 
-        const app_access_token = await this.getAppAccessToken(fbConfig);
+        const app_access_token = await this.getAppAccessToken(config);
         if (app_access_token === '') {
             return null;
         }
 
         const params = {
-            input_token: token,
+            input_token: config.token,
             access_token: app_access_token
         }
 
@@ -52,12 +54,12 @@ export class Fb {
         return fbresponse;
     }
 
-    private getAppAccessToken = async (fbConfig: FacebookConfig) => {
+    private getAppAccessToken = async (config: FacebookConfig) => {
         const params = {
-            client_id: fbConfig.clientId,
-            client_secret: fbConfig.clientSecret,
-            grant_type: fbConfig.grantType,
-            redirect_uri: fbConfig.redirectUri
+            client_id: config.clientId,
+            client_secret: config.clientSecret,
+            grant_type: config.grantType,
+            redirect_uri: config.redirectUri
         }
         const url = this.appTokenUrl(params);
 
