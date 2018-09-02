@@ -1,2 +1,3 @@
 import { fb, FacebookConfig } from './facebook';
-export { fb, FacebookConfig };
+import { Google, GoogleConfig } from './google';
+export { fb, FacebookConfig, Google, GoogleConfig };
