@@ -1,6 +1,6 @@
 ### CAUTION: Work in progress. Not stable.
 
-## Hapi Knoc
+## Knoc
 A bell like plugin for authentication with Hapi.js, with the freedom of custom
 handler logic.
 Supports
@@ -8,14 +8,15 @@ Supports
 
 ## Installation
 ```sh
-npm install hapi-knoc --save
-yarn add hapi-knoc
+npm install knoc --save
+yarn add knoc
 ```
 ## Usage
 ```typescript
 // facebook oauth
-import {fb, FacebookConfig} from 'hapi-knoc';
-import * as config '/path/to/my/config';
+import {fb, FacebookConfig} from 'knoc';
+import config '/path/to/my/config';
+
 const fbHandler = async (req, h) => {
   const token = request.payload.token;
   // Pass in the config

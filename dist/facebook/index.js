@@ -51,26 +51,26 @@ var Fb = /** @class */ (function () {
         this.appTokenUrl = function (params) {
             return _this.url(Fb.APP_TOKEN_PATH, params);
         };
-        this.validate = function (token, fbConfig) { return __awaiter(_this, void 0, void 0, function () {
+        this.authenticate = function (config) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.inspectToken(token, fbConfig)];
+                    case 0: return [4 /*yield*/, this.inspectToken(config)];
                     case 1: return [2 /*return*/, _a.sent()];
                 }
             });
         }); };
-        this.inspectToken = function (token, fbConfig) { return __awaiter(_this, void 0, void 0, function () {
+        this.inspectToken = function (config) { return __awaiter(_this, void 0, void 0, function () {
             var app_access_token, params, url, response, fbresponse;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.getAppAccessToken(fbConfig)];
+                    case 0: return [4 /*yield*/, this.getAppAccessToken(config)];
                     case 1:
                         app_access_token = _a.sent();
                         if (app_access_token === '') {
                             return [2 /*return*/, null];
                         }
                         params = {
-                            input_token: token,
+                            input_token: config.token,
                             access_token: app_access_token
                         };
                         url = this.inspectUrl(params);
@@ -82,16 +82,16 @@ var Fb = /** @class */ (function () {
                 }
             });
         }); };
-        this.getAppAccessToken = function (fbConfig) { return __awaiter(_this, void 0, void 0, function () {
+        this.getAppAccessToken = function (config) { return __awaiter(_this, void 0, void 0, function () {
             var params, url, response, token;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         params = {
-                            client_id: fbConfig.clientId,
-                            client_secret: fbConfig.clientSecret,
-                            grant_type: fbConfig.grantType,
-                            redirect_uri: fbConfig.redirectUri
+                            client_id: config.clientId,
+                            client_secret: config.clientSecret,
+                            grant_type: config.grantType,
+                            redirect_uri: config.redirectUri
                         };
                         url = this.appTokenUrl(params);
                         return [4 /*yield*/, axios.get(url)];

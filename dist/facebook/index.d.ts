@@ -1,8 +1,10 @@
 export interface FacebookConfig {
+    token: string;
     clientId: string;
     clientSecret: string;
     grantType: string;
     redirectUri: string;
+    scope?: string;
 }
 export declare class Fb {
     private static GRAPH_URL;
@@ -11,7 +13,7 @@ export declare class Fb {
     private url;
     private inspectUrl;
     private appTokenUrl;
-    validate: (token: string, fbConfig: FacebookConfig) => Promise<any>;
+    authenticate: (config: FacebookConfig) => Promise<any>;
     private inspectToken;
     private getAppAccessToken;
 }

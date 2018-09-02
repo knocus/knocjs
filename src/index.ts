@@ -1,6 +1,9 @@
 import {fb, FacebookConfig} from './facebook';
+import { Google, GoogleConfig } from './google';
 
 export {
     fb,
-    FacebookConfig
+    FacebookConfig,
+    Google,
+    GoogleConfig
 }
