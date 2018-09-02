@@ -47,19 +47,21 @@ var Google = /** @class */ (function () {
                         client = new google_auth_library_1.OAuth2Client(config.clientId);
                         _a.label = 1;
                     case 1:
-                        _a.trys.push([1, 3, , 4]);
+                        _a.trys.push([1, 4, , 5]);
                         return [4 /*yield*/, client.verifyIdToken({
                                 idToken: config.idToken,
                                 audience: config.clientId,
                             })];
                     case 2:
                         ticket = _a.sent();
-                        loginTicket = ticket.getPayload();
-                        return [2 /*return*/, loginTicket];
+                        return [4 /*yield*/, ticket.getPayload()];
                     case 3:
+                        loginTicket = _a.sent();
+                        return [2 /*return*/, loginTicket];
+                    case 4:
                         err_1 = _a.sent();
                         throw err_1;
-                    case 4: return [2 /*return*/];
+                    case 5: return [2 /*return*/];
                 }
             });
         }); };
