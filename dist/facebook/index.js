@@ -51,14 +51,6 @@ var Fb = /** @class */ (function () {
         this.appTokenUrl = function (params) {
             return _this.url(Fb.APP_TOKEN_PATH, params);
         };
-        this.authenticate = function (config) { return __awaiter(_this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.inspectToken(config)];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
-            });
-        }); };
         this.inspectToken = function (config) { return __awaiter(_this, void 0, void 0, function () {
             var app_access_token, params, url, response, fbresponse;
             return __generator(this, function (_a) {
@@ -102,10 +94,40 @@ var Fb = /** @class */ (function () {
                 }
             });
         }); };
+        this.getProfile = function (token, userId) { return __awaiter(_this, void 0, void 0, function () {
+            var url, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        url = this.url([Fb.version, userId].join('/'), { access_token: token });
+                        return [4 /*yield*/, axios.get(url)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, response];
+                }
+            });
+        }); };
+        this.authenticate = function (config) { return __awaiter(_this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.inspectToken(config)];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
+        }); };
+        this.profile = function (token, userId) { return __awaiter(_this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.getProfile(token, userId)];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
+        }); };
     }
     Fb.GRAPH_URL = "https://graph.facebook.com";
     Fb.DEBUG_TOKEN_PATH = "debug_token";
     Fb.APP_TOKEN_PATH = "oauth/access_token";
+    Fb.version = "v3.1";
     return Fb;
 }());
 exports.Fb = Fb;

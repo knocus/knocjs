@@ -17,6 +17,7 @@ export class Fb {
     private static GRAPH_URL = "https://graph.facebook.com";
     private static DEBUG_TOKEN_PATH = "debug_token";
     private static APP_TOKEN_PATH = "oauth/access_token";
+    private static version = "v3.1";
 
     private url = (path: string, params: Object) => {
         const baseUrl: string = [Fb.GRAPH_URL, path].join('/');
@@ -29,10 +30,6 @@ export class Fb {
 
     private appTokenUrl = (params: Object) => {
         return this.url(Fb.APP_TOKEN_PATH, params);
-    }
-
-    public authenticate = async (config: FacebookConfig)  => {
-        return await this.inspectToken(config)
     }
 
     private inspectToken = async (config: FacebookConfig) => {
@@ -68,6 +65,22 @@ export class Fb {
 
         return token;
     }
+
+    private getProfile = async (token, userId) => {
+        const url = this.url([Fb.version, userId].join('/'), {access_token: token})
+        const response = await axios.get(url);
+        return response;
+    }
+
+    public authenticate = async (config: FacebookConfig) => {
+        return await this.inspectToken(config)
+    }
+
+    public profile = async (token, userId) => {
+        return await this.getProfile(token, userId);
+    }
+
+
 }
 
 const fb = new Fb();
