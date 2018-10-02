@@ -72,12 +72,29 @@ export class Fb {
         return response;
     }
 
+    private getPicture = async (token, userId, height, redirect) => {
+        const url = this.url([Fb.version, userId, "picture"].join('/'), {
+            access_token:token,
+            height,
+            redirect
+        })
+
+        const response = await axios.get(url);
+        return response;
+
+    }
+
     public authenticate = async (config: FacebookConfig) => {
         return await this.inspectToken(config)
     }
 
     public profile = async (token, userId) => {
         return await this.getProfile(token, userId);
+    }
+
+    public picture = async (token, userId, height, redirect?) => {
+        const red = redirect || 0;
+        return await this.getPicture(token, userId, height, redirect);
     }
 
 

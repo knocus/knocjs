@@ -18,8 +18,10 @@ export declare class Fb {
     private inspectToken;
     private getAppAccessToken;
     private getProfile;
+    private getPicture;
     authenticate: (config: FacebookConfig) => Promise<any>;
     profile: (token: any, userId: any) => Promise<Axios.AxiosResponse<any>>;
+    picture: (token: any, userId: any, height: any, redirect?: any) => Promise<Axios.AxiosResponse<any>>;
 }
 declare const fb: Fb;
 export { fb };
