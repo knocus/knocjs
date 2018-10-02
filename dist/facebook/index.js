@@ -120,7 +120,7 @@ var Fb = /** @class */ (function () {
                         return [4 /*yield*/, axios.get(url)];
                     case 1:
                         response = _a.sent();
-                        return [2 /*return*/, response];
+                        return [2 /*return*/, response.data];
                 }
             });
         }); };

@@ -80,7 +80,7 @@ export class Fb {
         })
 
         const response = await axios.get(url);
-        return response;
+        return response.data;
 
     }
 

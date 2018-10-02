@@ -21,7 +21,7 @@ export declare class Fb {
     private getPicture;
     authenticate: (config: FacebookConfig) => Promise<any>;
     profile: (token: any, userId: any) => Promise<Axios.AxiosResponse<any>>;
-    picture: (token: any, userId: any, height: any, redirect?: any) => Promise<Axios.AxiosResponse<any>>;
+    picture: (token: any, userId: any, height: any, redirect?: any) => Promise<any>;
 }
 declare const fb: Fb;
 export { fb };
