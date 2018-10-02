@@ -107,6 +107,23 @@ var Fb = /** @class */ (function () {
                 }
             });
         }); };
+        this.getPicture = function (token, userId, height, redirect) { return __awaiter(_this, void 0, void 0, function () {
+            var url, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        url = this.url([Fb.version, userId, "picture"].join('/'), {
+                            access_token: token,
+                            height: height,
+                            redirect: redirect
+                        });
+                        return [4 /*yield*/, axios.get(url)];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, response.data];
+                }
+            });
+        }); };
         this.authenticate = function (config) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -119,6 +136,17 @@ var Fb = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.getProfile(token, userId)];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
+        }); };
+        this.picture = function (token, userId, height, redirect) { return __awaiter(_this, void 0, void 0, function () {
+            var red;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        red = redirect || 0;
+                        return [4 /*yield*/, this.getPicture(token, userId, height, redirect)];
                     case 1: return [2 /*return*/, _a.sent()];
                 }
             });
