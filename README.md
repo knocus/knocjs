@@ -1,4 +1,4 @@
-### CAUTION: Work in progress. Not stable.
+### CAUTION: We have decided to drop this project and hence won't be maintained.
 
 ## Knoc
 A bell like plugin for authentication with Hapi.js, with the freedom of custom
